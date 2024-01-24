@@ -8,7 +8,7 @@ from sqlalchemy import text
 from datetime import datetime
 from datetime import timedelta
 from airflow import DAG
-
+from airflow.decorators import task
 
 default_args = {
     'owner': 'airflow',
