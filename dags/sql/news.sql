@@ -1,5 +1,4 @@
-DROP TABLE news
-CREATE TABLE news (
+CREATE TABLE IF NOT EXISTS news (
     id SERIAL PRIMARY KEY,
     country_id INT,
     source VARCHAR NOT NULL,

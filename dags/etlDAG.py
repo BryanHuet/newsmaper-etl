@@ -1,24 +1,14 @@
 import airflow
 import pandas as pd
-import numpy as np
-import os
 import requests
-import pandas as pd
-import numpy as np
-from datetime import datetime
 import logging
-import sqlalchemy
 import json
 import sqlalchemy
 from sqlalchemy import text
+from datetime import datetime
 from datetime import timedelta
 from airflow import DAG
-from airflow.operators.python import PythonOperator, BranchPythonOperator
-from airflow.operators.bash import BashOperator
-from airflow.providers.postgres.operators.postgres import PostgresOperator
-from airflow.decorators import task
-from airflow.providers.postgres.hooks.postgres import PostgresHook
-from datetime import datetime
+
 
 default_args = {
     'owner': 'airflow',
@@ -46,8 +36,8 @@ with DAG(
     @task
     def transform(data):
         renamed = data.rename(columns={'author':'source', 'url':'link', 'publishedAt':'origin'})
-        renamed['country_id'] = 0
-        renamed['timestamp'] = datetime.timestamp(datetime.now())
+        renamed['country_id'] = 1
+        renamed['timestamp'] = datetime.now().isoformat()
         return renamed
     
     @task
@@ -60,5 +50,5 @@ with DAG(
         data = data.loc[data['is_in']==False]
         data = data[['source', 'title', 'link', 'origin', 'timestamp', 'country_id']]
         logging.info(f'load {len(data)} new rows.')
-        data.to_sql(name='news', con=engine, if_exists='append')
+        data.to_sql(name='news', con=engine, if_exists='append', index=False)
     load(transform(extract()))
