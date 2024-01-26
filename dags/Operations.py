@@ -53,8 +53,8 @@ with DAG(
             result = conn.execute(text("SELECT * FROM news")).fetchall()
         
         database = pd.DataFrame(result)
-        columns = ['source', 'title', 'link', 'origin']
-        row_exists = data.apply(is_in_base, base=database, columns=columns, axis=1)
+        tested_columns = ['source', 'title', 'link']
+        row_exists = data.apply(is_in_base, base=database, columns=tested_columns, axis=1)
         data = data[~row_exists]
 
         logging.info(f'load {len(data)} new rows.')
