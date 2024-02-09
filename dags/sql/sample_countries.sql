@@ -1,6 +1,6 @@
-INSERT INTO countries (name)
+INSERT INTO countries (name, capital)
 VALUES 
-    ('France'),
-    ('Italie'),
-    ('Egypte');
-    
+    ('France', 'Paris'),
+    ('Italie', 'Rome'),
+    ('Egypte', 'Le Caire'),
+    ('Argentine', 'Buenos Aires');
