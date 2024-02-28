@@ -54,9 +54,11 @@ with DAG(
 
     @task
     def populate_sources_table():
-        engine = sqlalchemy.create_engine('postgresql://airflow:airflow@host.docker.internal:5432/airflow')
+        engine = sqlalchemy.create_engine(
+            'postgresql://airflow:airflow@host.docker.internal:5432/airflow')
         data = pd.read_csv('/opt/airflow/dags/files/sources.csv')
-        data.to_sql(name='sources', con=engine, if_exists='append', index=False)
+        data.to_sql(name='sources', con=engine,
+                    if_exists='append', index=False)
     create_countries_table >> populate_countries_table
     create_sources_table >> populate_sources_table()
     create_date_table
