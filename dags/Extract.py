@@ -141,4 +141,23 @@ with DAG(
 
         logging.info(f'load {len(data)} new rows.')
         data.to_sql(name='news', con=engine, if_exists='append', index=False)
-    load(transform(extractDate(extract())))
+
+    @task
+    def drop_duplicate():
+        tested_columns = ['id_source', 'id_date', 'title']
+        engine = sqlalchemy.create_engine('postgresql://airflow:airflow@host.docker.internal:5432/airflow')
+        with engine.connect() as conn:
+            result = conn.execute(text("SELECT * FROM news")).fetchall()   
+        database = pd.DataFrame(result, index=np.array(result)[:,0])[tested_columns]
+        if len(database) == 0:
+            return
+        no_duplicates = database.drop_duplicates()
+        if len(no_duplicates) == len(database):
+            return
+        duplicates = database.loc[database.index.drop(no_duplicates.index)]
+        with engine.connect() as conn:
+            for i in range(0, len(duplicates)):
+                row = duplicates.iloc[i]
+                sql = f"DELETE FROM news WHERE id={row.name}"
+                conn.execute(text(sql))
+    drop_duplicate() >> load(transform(extractDate(extract())))
