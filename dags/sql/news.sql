@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS news (
     id SERIAL PRIMARY KEY,
-    country_id INT,
-    source VARCHAR NOT NULL,
+
+    id_country INT REFERENCES countries(id),
+    id_source INT REFERENCES sources(id),
+    id_date INT REFERENCES date(id),
+
     title VARCHAR NOT NULL,
     link VARCHAR NOT NULL,
-    origin VARCHAR NOT NULL,
-    timestamp DATE NOT NULL,
-    CONSTRAINT fk_countries
-        FOREIGN KEY(country_id) 
-            REFERENCES countries(id)
+    description VARCHAR NOT NULL,
+    media VARCHAR
 );

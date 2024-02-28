@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS sources (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    website VARCHAR NOT NULL,
+    rss VARCHAR NOT NULL
+);

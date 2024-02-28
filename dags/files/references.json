@@ -1,0 +1,57 @@
+[
+    {
+        "id": 2,
+        "name": "Italie",
+        "words": [
+            "italie", "l'italie", "italie", "italian", "italia", "Rome",
+            "italienne", "italien", "l'italie", "roma"
+        ]
+    },
+    {
+        "id": 44,
+        "name": "Hongrie",
+        "words": [
+            "hongrie", "hongrois", "hongroise", "budapest"
+        ]
+
+    },
+    {
+        "id": 3,
+        "name": "Egypte",
+        "words": [
+            "egypte", "egyptien", "égyptien", "egyptienne", "égyptienne",
+            "l'egypte", "caire", "lecaire"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Argentine",
+        "words": [
+            "argentine", "l'argentine", "argentin", "buenos", "aires"
+        ]
+    },
+    {
+        "id": 45,
+        "name": "Ukraine",
+        "words": [
+            "ukraine", "ukrainiens", "ukrainiennes", "ukrainien", "ukrainienne",
+            "kiev", "zelensky", "rada"
+        ]
+    },
+    {
+        "id": 46,
+        "name": "Russie",
+        "words":[
+            "russe", "russie", "russia", "russes", "kremlin", "moscou", "urss",
+            "poutine"
+        ]
+    },
+    {
+        "id": 47,
+        "name": "Israel",
+        "words": [
+            "israel", "israël", "jérusalem", "jerusalem", "hebreu", "hébreu"
+        ]
+    }
+
+]
