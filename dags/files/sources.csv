@@ -4,3 +4,8 @@ franceinfo,https://www.francetvinfo.fr/,https://www.francetvinfo.fr/titres.rss
 La Croix,https://www.la-croix.com/,https://www.la-croix.com/RSS/UNIVERS
 L'Humanité,https://www.humanite.fr/,https://www.humanite.fr/feed
 Europe1,https://www.europe1.fr/,https://www.europe1.fr/rss.xml
+France24,https://www.france24.com,https://www.france24.com/fr/rss
+CourrierInternational,https://www.courrierinternational.com,https://www.courrierinternational.com/feed/all/rss.xml
+Le Monde,https://www.lemonde.fr/,https://www.lemonde.fr/international/rss_full.xml
+Le Devoir,https://www.ledevoir.com/,http://feeds2.feedburner.com/fluxdudevoir
+Libération,https://www.liberation.fr/,https://www.liberation.fr/arc/outboundfeeds/rss-all/?outputType=xml

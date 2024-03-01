@@ -4,7 +4,7 @@ import sqlalchemy
 from sqlalchemy import text
 from datetime import datetime
 from airflow.decorators import task
-
+import logging
 
 COLUMNS = ['id_country', 'id_source', 'id_date',
            'title', 'link', 'description', 'media']
@@ -34,12 +34,16 @@ def applyReferences(row, references):
 
 
 def search_id(row):
-    requ = f"SELECT id FROM date WHERE hours={row['hours']} and day={row['day']} and month={row['month']}"
+    requ = f"SELECT id FROM date WHERE hours={row['hours']} and day={row['day']} and month={row['month']} and year={row['year']}"
     engine = sqlalchemy.create_engine(
         'postgresql://airflow:airflow@host.docker.internal:5432/airflow')
     with engine.connect() as conn:
         result = conn.execute(text(requ))
-    row['id_date'] = int(result.fetchall()[0][0])
+    try:
+        row['id_date'] = int(result.fetchall()[0][0])
+    except:
+        logging.info(requ)
+        raise ValueError  
     return row
 
 

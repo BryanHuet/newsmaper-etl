@@ -52,6 +52,35 @@
         "words": [
             "israel", "israël", "jérusalem", "jerusalem", "hebreu", "hébreu"
         ]
+    },
+    {
+        "id": 48,
+        "name": "Etats-Unis",
+        "words": [
+            "Etats-Unis", "états-unis", "washington", "new-york", "biden", "trump", "américain"
+        ]
+    },
+    {
+        "id": 49,
+        "name": "Chine",
+        "words": [
+            "chine", "pekin", "chinois", "chinoise", "jiping"
+        ]
+    },
+    {
+        "id": 50,
+        "name": "Inde",
+        "words": [
+            "inde", "hindou", "indien", "indienne", "delhi"
+        ]
+    },
+    {
+        "id": 51,
+        "name": "Venezuela",
+        "words": [
+            "vénézuela", "venezuela", "vénézuelien", "vénézuelienne",
+             "bolivar", "caracas", "chavèz", "maduro" 
+        ]
     }
 
 ]
